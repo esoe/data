@@ -1,4 +1,4 @@
-package esoe.Model;
+package esoe.model;
 
 import javax.swing.table.TableModel;
 

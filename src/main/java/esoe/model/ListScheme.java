@@ -1,8 +1,7 @@
-package esoe.Model;
+package esoe.model;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ListScheme extends AbstractTableModel implements Wildcard{
     public ArrayList<String> header;
