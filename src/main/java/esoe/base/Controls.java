@@ -3,54 +3,6 @@ package esoe.base;
 import java.sql.*;
 import esoe.model.*;
 
-import javax.swing.*;
-
-//временное создал класс для доступа к базе, пока нет методов авторизации пользователей.
-//Acc Access = new Acc();
-class Access{
-    static String userName = "root";
-    static String password = null;
-    static String url = "jdbc:mysql://localhost:3306/" 	+
-            "mysql?zeroDateTimeBehavior=convertToNull" + "&useSSL=false";
-    static String driver = "com.mysql.jdbc.Driver";
-
-    public static String getUserName(){
-        return userName;
-    }
-
-    public static String getPassword(){
-        if (password == null) {password = JOptionPane.showInputDialog("password", "root");}
-        return password;
-    }
-
-    public static void setUrl(String Name){
-        if (Name == "") url = "jdbc:mysql://localhost:3306/" +
-                "mysql?zeroDateTimeBehavior=convertToNull" +
-                "&useSSL=false"
-                ;
-        else url = "jdbc:mysql://localhost:3306/" + Name + "?useSSL=false";
-    }
-
-
-    public static String getUrl(){
-        return url;
-    }
-
-    public static String getDriver(){
-        return driver;
-    }
-
-
-    public static void main(String[] args) {
-        System.out.println("Содержимое Access:");
-        System.out.println("userName: " + getUserName());
-        System.out.println("password: " + getPassword());
-        System.out.println("url: " + getUrl());
-        System.out.println("driver: " + getDriver());
-    }
-
-}
-
 public class Controls {
 
     public static void create(String base){
@@ -452,44 +404,5 @@ public class Controls {
         }
         dm = new ArrScheme(data, header);
         return dm;
-    }
-
-
-
-    public static void main(String args[]) {
-        String base="Core";
-        String table="Projects";
-
-        getDataCount(base, table);
-        getData(base, table);
-        getBaseList();
-
-        ArrScheme mod = getBaseModel();
-        System.out.println("mod.data[i][i]");
-        System.out.println(mod.header[0] + " " + mod.header[1]);
-
-        int i = 0;
-        while (i < mod.getRowCount()) {
-            System.out.println(mod.data[i][0] + " " + mod.data[i][1]);
-            i++;
-        }
-
-        String[] s;
-        s = getTableList("Core");
-        System.out.println("количество таблиц в базе: " + s.length);
-        int p = 0;
-        while (p < s.length) {
-            System.out.println(s[p]);
-            p++;
-        }
-
-        String[] s1;
-        s1 = getBaseList();
-        System.out.println("количество баз на сервере: " + s1.length);
-        int p1 = 0;
-        while (p1 < s1.length) {
-            System.out.println(s1[p1]);
-            p1++;
-        }
     }
 }
