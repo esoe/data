@@ -1,8 +1,19 @@
 package esoe.Model;
 
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ListType extends AbstractTableModel implements Wildcard{
+public class ListScheme extends AbstractTableModel implements Wildcard{
+    public ArrayList<String> header;
+    public ArrayList<Object> data;
+    //data может быть строкой, тогда объект ListScheme будет возвращать заголовок и одну строку.
+    //Список же обектов ListScheme будет представлять таблицу.
+    //возможно проще в arrSheme расширить функционал, переводя периодически данные в arrayList,
+    //когда это удобно.
+    //в tableModel можно передавать либо массив, либо вектор, всеравно понадобится преобразование данных.
+
+
     //возвращаем количество столбцов в модели
     public int getColumnCount();
 

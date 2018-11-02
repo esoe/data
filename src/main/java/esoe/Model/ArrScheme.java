@@ -1,11 +1,11 @@
 package esoe.Model;
 import javax.swing.table.AbstractTableModel;
 
-public class ArrType extends AbstractTableModel implements Wildcard {
+public class ArrScheme extends AbstractTableModel implements Wildcard {
     public String[] header;
     public Object[][] data;
 
-    public ArrType() {
+    public ArrScheme() {
        String[] h = { "id" };
         Object[][] d = {
                 { "1" },
@@ -15,7 +15,7 @@ public class ArrType extends AbstractTableModel implements Wildcard {
         this.data = d;
     }
 
-    public ArrType(Object[][] d, String[] h) {
+    public ArrScheme(Object[][] d, String[] h) {
         this.header = h;
         this.data = d;
     }
@@ -103,7 +103,7 @@ public class ArrType extends AbstractTableModel implements Wildcard {
      * добавляем поле к заголовку
      * добавляем столбец к данным - пустой
      */
-    public ArrType addColumn(String s) {
+    public ArrScheme addColumn(String s) {
         String[] newHeader = new String[this.header.length + 1];
 
         int i = 0;
@@ -123,7 +123,7 @@ public class ArrType extends AbstractTableModel implements Wildcard {
             }
             i++;
         }
-        ArrType newModel = new ArrType(newData, newHeader);
+        ArrScheme newModel = new ArrScheme(newData, newHeader);
         return newModel;
     }
 
