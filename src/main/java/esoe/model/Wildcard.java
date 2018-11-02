@@ -22,6 +22,11 @@ public interface Wildcard extends TableModel {
     //изменение данных в ячейке модели таблицы
     public void setValueAt(Object val, int row, int col);
 
+    /**
+     * методы зависят от того, с какими данными работает модель.
+     * при работе с arrayList, конструкторы должны быть переопределены
+     * потому их лучше не указывать в интерфейсе.
+     *
     //добавляет в модель пустую строку
     public Object[][] addString();
 
@@ -34,5 +39,6 @@ public interface Wildcard extends TableModel {
     //возвращаем класс к которому относятся данные столбца
     //необходимо при формировании запроса на создание таблицы в базе данных
     public Class getColumnClass(int col);
+     */
 
 }

@@ -9,7 +9,7 @@ import javax.swing.*;
 //Acc Access = new Acc();
 class Access{
     static String userName = "root";
-    static String password = "";
+    static String password = null;
     static String url = "jdbc:mysql://localhost:3306/" 	+
             "mysql?zeroDateTimeBehavior=convertToNull" + "&useSSL=false";
     static String driver = "com.mysql.jdbc.Driver";
@@ -19,7 +19,8 @@ class Access{
     }
 
     public static String getPassword(){
-        return JOptionPane.showInputDialog("password", "root");
+        if (password == null) {password = JOptionPane.showInputDialog("password", "root");}
+        return password;
     }
 
     public static void setUrl(String Name){

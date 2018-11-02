@@ -1,10 +1,18 @@
 package esoe.model;
 import javax.swing.table.AbstractTableModel;
 
+/**
+ * Модель данных, представленная двумерным массивом объектов.
+ *
+ * ограничения:
+ * 1. Первый столбец всегда должен быть "id" - уникальный идентификатор
+ */
+
 public class ArrScheme extends AbstractTableModel implements Wildcard {
     public String[] header;
     public Object[][] data;
 
+    //модель, формируемая по умолчанию
     public ArrScheme() {
        String[] h = { "id" };
         Object[][] d = {
@@ -45,7 +53,7 @@ public class ArrScheme extends AbstractTableModel implements Wildcard {
         boolean isEditable = true;
         /**
          if (col == 0) {
-         isEditable = false; // Make the ID column non-editable
+         isEditable = false; // сделат столбец "id" нередактируемым
          }
          */
         return isEditable;
@@ -57,7 +65,7 @@ public class ArrScheme extends AbstractTableModel implements Wildcard {
         fireTableDataChanged();
     }
 
-    //добавляет в модель пустую строку
+    //добавляем в модель пустую строку
     public Object[][] addString(){
         Object[][] newData = new Object[this.data.length+1][this.header.length];
 
